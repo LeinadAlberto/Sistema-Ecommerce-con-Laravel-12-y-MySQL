@@ -187,7 +187,7 @@
                                     <div class="input-group mb-3">
                                         <span class="input-group-text"><i class="bi bi-image mb-2"></i></span>
 
-                                        <input type="file" name="logo" id="logo" 
+                                        <input type="file" name="logo" id="logo" onchange="mostrarImagen(event)"
                                             class="form-control @error('logo') is-invalid @enderror" 
                                             accept="image/*" required>
 
@@ -198,6 +198,12 @@
                                         @enderror
                                     </div>{{-- /.input-group --}}
                                 </div>{{-- /.col-md-12 --}}
+
+                                <img src="" id="preview1" style="max-width: 250px; margin-top: 10px">
+                                <script>
+                                    const mostrarImagen = e => 
+                                        document.getElementById('preview1').src = URL.createObjectURL(e.target.files[0]);
+                                </script>
                             </div>{{-- /.row --}}
 
                             <div class="row">
@@ -207,7 +213,7 @@
                                     <div class="input-group mb-3">
                                         <span class="input-group-text"><i class="bi bi-camera mb-2"></i></span>
 
-                                        <input type="file" name="imagen_login" id="imagen_login" 
+                                        <input type="file" name="imagen_login" id="imagen_login" onchange="mostrarImagen2(event)"
                                             class="form-control @error('imagen_login') is-invalid @enderror" 
                                             accept="image/*" required>
 
@@ -218,8 +224,27 @@
                                         @enderror
                                     </div>{{-- /.input-group --}}
                                 </div>{{-- /.col-md-12 --}}
+
+                                <img src="" id="preview2" style="max-width: 250px; margin-top: 10px">
+                                <script>
+                                    const mostrarImagen2 = e => 
+                                        document.getElementById('preview2').src = URL.createObjectURL(e.target.files[0]);
+                                </script>
                             </div>{{-- /.row --}}
                         </div>{{-- /.col-md-2 --}}
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="bi bi-save"></i>
+                                        Guardar Cambios
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>{{-- /.row --}}
                 </form>
             </div>{{-- /.card-body --}}
