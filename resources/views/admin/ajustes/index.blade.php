@@ -12,7 +12,8 @@
                 <h4>Configuraciones del Sistema</h4>
             </div>
             <div class="card-body">
-                <form action="">
+                <form action="{{ url('/admin/ajustes/create') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                         <div class="col-md-8">
                             <div class="row">
@@ -198,8 +199,9 @@
                                         @enderror
                                     </div>{{-- /.input-group --}}
                                 </div>{{-- /.col-md-12 --}}
-
-                                <img src="" id="preview1" style="max-width: 250px; margin-top: 10px">
+                                <div style="text-align: center" class="mb-3">
+                                    <img src="" id="preview1" style="max-width: 200px; margin-top: 10px">
+                                </div>
                                 <script>
                                     const mostrarImagen = e => 
                                         document.getElementById('preview1').src = URL.createObjectURL(e.target.files[0]);
@@ -225,7 +227,9 @@
                                     </div>{{-- /.input-group --}}
                                 </div>{{-- /.col-md-12 --}}
 
-                                <img src="" id="preview2" style="max-width: 250px; margin-top: 10px">
+                                <div style="text-align: center" class="mb-3">
+                                    <img src="" id="preview2" style="max-width: 200px; margin-top: 10px">
+                                </div>
                                 <script>
                                     const mostrarImagen2 = e => 
                                         document.getElementById('preview2').src = URL.createObjectURL(e.target.files[0]);
@@ -237,7 +241,7 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="form-group">
+                                <div class="form-group mt-2 mb-1">
                                     <button type="submit" class="btn btn-primary">
                                         <i class="bi bi-save"></i>
                                         Guardar Cambios
